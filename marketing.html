@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Automation - CRM</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Marketing Automation</h2>
+        <div class="text-right mb-3">
+            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addCampaignModal">Create Marketing Campaign</a>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Campaign Name</th>
+                    <th>Status</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamically populate with campaigns from the database -->
+                <tr>
+                    <td>Email Marketing - Q3</td>
+                    <td>Ongoing</td>
+                    <td>2024-07-01</td>
+                    <td>2024-09-30</td>
+                    <td>
+                        <a href="#" class="btn btn-primary btn-sm">View</a>
+                        <a href="#" class="btn btn-danger btn-sm">Stop</a>
+                    </td>
+                </tr>
+                <!-- More rows -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add Campaign Modal -->
+    <div class="modal fade" id="addCampaignModal" tabindex="-1" role="dialog" aria-labelledby="addCampaignModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCampaignModalLabel">Create Marketing Campaign</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="add_campaign.php" method="POST">
+                        <div class="form-group">
+                            <label for="campaignName">Campaign Name</label>
+                            <input type="text" class="form-control" id="campaignName" name="campaign_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="campaignStart">Start Date</label>
+                            <input type="date" class="form-control" id="campaignStart" name="campaign_start" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="campaignEnd">End Date</label>
+                            <input type="date" class="form-control" id="campaignEnd" name="campaign_end" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create Campaign</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
