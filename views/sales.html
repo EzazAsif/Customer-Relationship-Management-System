@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales - CRM</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Sales Automation</h2>
+        <div class="text-right mb-3">
+            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addLeadModal">Add New Lead</a>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Lead Name</th>
+                    <th>Contact Info</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamically populate with leads from database -->
+                <tr>
+                    <td>Acme Corporation</td>
+                    <td>jane@example.com</td>
+                    <td>In Progress</td>
+                    <td>
+                        <a href="edit_sales.html" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                <!-- More rows -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add Lead Modal -->
+    <div class="modal fade" id="addLeadModal" tabindex="-1" role="dialog" aria-labelledby="addLeadModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addLeadModalLabel">Add New Lead</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="add_lead.php" method="POST">
+                        <div class="form-group">
+                            <label for="leadName">Lead Name</label>
+                            <input type="text" class="form-control" id="leadName" name="lead_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="leadEmail">Contact Email</label>
+                            <input type="email" class="form-control" id="leadEmail" name="lead_email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="leadStatus">Status</label>
+                            <select class="form-control" id="leadStatus" name="lead_status">
+                                <option value="New">New</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Won">Won</option>
+                                <option value="Lost">Lost</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Lead</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
